@@ -4,8 +4,8 @@ defmodule DomainTracking.MixProject do
   def project do
     [
       app: :domain_tracking,
-      version: "0.1.0",
-      elixir: "~> 1.5",
+      version: "0.1.1",
+      elixir: "~> 1.9.0",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -19,7 +19,7 @@ defmodule DomainTracking.MixProject do
   def application do
     [
       mod: {DomainTracking.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools],
     ]
   end
 
@@ -38,7 +38,9 @@ defmodule DomainTracking.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:redix, ">= 0.0.0"},
-      {:castore, ">= 0.0.0"}
+      {:castore, ">= 0.0.0"},
+      {:httpoison, "~> 1.6"},
+      {:elixir_uuid, "~> 1.2"},
     ]
   end
 end
