@@ -1,19 +1,12 @@
 # DomainTracking
-
-To start your Phoenix server:
-
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
-
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+Просмотр посещенных доменов при помощи Redis
+<h3>установка компонентов</h3>
+<code>cd assets && npm install</code>
+<h3>получение зависимостей</h3>
+<code>mix deps.get</code>
+<h3>Запуск сервера</h3>
+<code>iex -S mix phx.server</code>
+<h3>Добавление посещенных доменов</h3>
+<code>HTTPoison.post "http://localhost:4000/api/visited_links", "{\"links\":[\"ya.ru\",\"funbox.ru\",\"stackoverflow.com\"]}", [{"Content-Type", "application/json"}]</code>
+<h3>Просмотр доменов за интервал(from/to - это время :os.system_time(:seconds))</h3>
+<code>HTTPoison.get("http://localhost:4000/api/visited_domains?from=1571838103&to=1581596983") </code>
